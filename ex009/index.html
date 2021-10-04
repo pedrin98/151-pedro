@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body { 
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: darkgray;
+        background-image: url("mercado.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    header, section{
+        background-color: white;
+        max-width: 600px;
+        padding: 10px;
+        margin: auto; 
+        margin-bottom: 10px;
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px rgb(0, 0, 0)
+        
+    }
+     </style>
+</head>
+<body>
+    <header>
+        <h1>super mercado</h1>
+        <p>Nosso supermercado está no mês de aniversário e todos os 
+            protutos vão ganhar 10% de desconto. Preencha o formulário a seguir 
+            com os dados dos produto e o preço atual. O sitema vai calcular o
+             novo preço para o produto</p>
+    </header>
+    <section id="formulário">
+       <h2>Sobre os prdutos</h2>
+       <form action="mercado.php" method="get" onsubmit="return reajuste()">
+            <label for="produto">nome do produto: </label>
+            <input type="text" name="produto" id="produto">
+            <br>
+            <label for="preco">preço:R$</label>
+            <input type="number" name="preco" id="preco" min="1" max="10000"
+            value="1" step="0.10">
+            <br>
+            <input type="submit" value="calcular">
+       </form>
+    </section>
+    <section id="resultado">
+       <h2>Resultados
+       </h2>
+       <p id= "saida"> </p>
+    </section>
+<script>
+    document.getElementById("resultado").style.visibility = "hidden"
+    function reajuste(){
+     let nome = document. getElementById("produto").value
+     let pre = Number(document.getElementById("preco").value)
+     let dezporc = (pre * 10)/100
+     let novopre = pre - dezporc
+     let saida = document.getElementById("saida")
+     saida.innerHTML = `O <strong>${nome}</strong> vai custar R$${novopre} na promoção de aniversário ` 
+     document.getElementById("resultado").style.visibility = "visible"
+        return false 
+    }
+ </script>
+</body>
+</html>
