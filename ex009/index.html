@@ -5,28 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-    body { 
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        background-color: darkgray;
-        background-image: url("mercado.jpg");
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-    }
-
-    header, section{
-        background-color: white;
-        max-width: 600px;
-        padding: 10px;
-        margin: auto; 
-        margin-bottom: 10px;
-        border-radius: 10px;
-        box-shadow: 10px 10px 10px rgb(0, 0, 0)
-        
-    }
-     </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -54,18 +33,6 @@
        </h2>
        <p id= "saida"> </p>
     </section>
-<script>
-    document.getElementById("resultado").style.visibility = "hidden"
-    function reajuste(){
-     let nome = document. getElementById("produto").value
-     let pre = Number(document.getElementById("preco").value)
-     let dezporc = (pre * 10)/100
-     let novopre = pre - dezporc
-     let saida = document.getElementById("saida")
-     saida.innerHTML = `O <strong>${nome}</strong> vai custar R$${novopre} na promoção de aniversário ` 
-     document.getElementById("resultado").style.visibility = "visible"
-        return false 
-    }
- </script>
+    <script src="mercado.js"></script>
 </body>
 </html>
